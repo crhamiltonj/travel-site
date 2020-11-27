@@ -1,4 +1,6 @@
 const path = require('path')
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+
 const postCSSPlugins = [
     require('postcss-import'),
     require('postcss-mixins'),
@@ -19,10 +21,20 @@ module.exports = {
         },
         contentBase: path.join(__dirname, 'app'),
         hot: true,
-        port: 3000,
+        port: 3100,
         host: "0.0.0.0"
     },
     mode: 'development',
+    plugins: [
+        new BrowserSyncPlugin(
+            {
+                host: 'localhost',
+                port: 3000,
+                proxy: 'http://localhost:3100/'
+            },
+            {reload: false}
+        )
+    ],
     module: {
         rules: [
             {
