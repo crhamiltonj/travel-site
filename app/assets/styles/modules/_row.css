@@ -21,6 +21,14 @@
             width: 63%;
 
         }
+
+        &__b-margin-until-medium {
+            margin-bottom: 0;
+        }
+    }
+
+    &__b-margin-until-medium {
+        margin-bottom: 1rem;
     }
 
     &--gutters {
