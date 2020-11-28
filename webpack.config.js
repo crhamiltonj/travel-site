@@ -41,8 +41,19 @@ module.exports = {
                 test: /\.css$/i,
                 use: [
                     'style-loader',
-                    'css-loader',
+                    'css-loader?url=false',
                     {loader: 'postcss-loader', options: {postcssOptions: {plugins: postCSSPlugins}}}
+                ]
+            },
+            {
+                test: /\/(png|jpg|gif)$/i,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
+                        }
+                    }
                 ]
             }
         ]
