@@ -6,6 +6,7 @@ const postCSSPlugins = [
     require('postcss-mixins'),
     require('postcss-simple-vars'),
     require('postcss-nested'),
+    require('postcss-hexrgba'),
     require('autoprefixer')
 ]
 
@@ -30,7 +31,8 @@ module.exports = {
             {
                 host: 'localhost',
                 port: 3000,
-                proxy: 'http://localhost:3100/'
+                proxy: 'http://localhost:3100/',
+                notify: false,
             },
             {reload: false}
         )
